@@ -31,7 +31,7 @@ CREATE TABLE START_DATE (
 );
 
 CREATE TABLE EMPLOYEE (
-    Employee_ID INT NOT NULL AUTO_INCREMENT,
+    Employee_ID CHAR(4) NOT NULL,
     Start_Date_ID INT,
     Gender_ID INT,
     P_ID INT NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE SILVER_MEMBER (
 );
 
 CREATE TABLE GOLD_MEMBER (
-    Employee_ID INT NOT NULL,
+    Employee_ID CHAR(4) NOT NULL,
     Customer_ID INT NOT NULL,
     PRIMARY KEY (Employee_ID, Customer_ID),
     FOREIGN KEY (Customer_ID)
@@ -79,7 +79,7 @@ CREATE TABLE GOLD_PASS (
 );
 
 CREATE TABLE OWNS_GOLD_PASS (
-    Employee_ID INT NOT NULL,
+    Employee_ID CHAR(4) NOT NULL,
     Customer_ID INT NOT NULL,
     Pass_ID INT NOT NULL,
     PRIMARY KEY (Employee_ID, Customer_ID, Pass_ID),
@@ -107,7 +107,7 @@ CREATE TABLE HAS_MEMBER_CARD (
 );
 
 CREATE TABLE AREA_MANAGER (
-    Employee_ID INT NOT NULL,
+    Employee_ID CHAR(4) NOT NULL,
     Location VARCHAR(30),
     PRIMARY KEY (Employee_ID),
     FOREIGN KEY (Employee_ID)
@@ -115,7 +115,7 @@ CREATE TABLE AREA_MANAGER (
 );
 
 CREATE TABLE DELIVERER (
-    Employee_ID INT NOT NULL,
+    Employee_ID CHAR(4) NOT NULL,
     Manager_ID INT,
     PRIMARY KEY (Employee_ID),
     FOREIGN KEY (Employee_ID)
@@ -125,7 +125,7 @@ CREATE TABLE DELIVERER (
 );
 
 CREATE TABLE STAFF (
-    Employee_ID INT NOT NULL,
+    Employee_ID CHAR(4) NOT NULL,
     Card_ID INT,
     PRIMARY KEY (Employee_ID),
     FOREIGN KEY (Employee_ID)
@@ -152,7 +152,7 @@ CREATE TABLE MODEL (
 CREATE TABLE VEHICLE (
     Plate_number CHAR(7) NOT NULL,
     Model_ID INT,
-    Employee_ID INT,
+    Employee_ID CHAR(4),
     PRIMARY KEY (Plate_number),
     FOREIGN KEY (Model_ID)
         REFERENCES MODEL (Model_ID),
@@ -215,7 +215,7 @@ CREATE TABLE PROMOTION (
 );
 
 CREATE TABLE MAKES_CONTRACTS (
-    Employee_ID INT NOT NULL,
+    Employee_ID CHAR(4) NOT NULL,
     ShoP_ID INT NOT NULL,
     Contract_start_time DATE,
     PRIMARY KEY (Employee_ID, Shop_ID),
@@ -409,17 +409,3 @@ INSERT INTO `person` (`P_ID`, `First_name`, `Middle_name`, `Last_name`, `Date_of
 
 INSERT INTO `gender` (`Gender_ID`, `Gender`) VALUES (NULL, 'Male'), (NULL, 'Female') ;
 
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2010-03-018');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2005-08-024');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2010-08-07');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2002-02-023');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2011-04-013');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2003-03-016');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2012-07-010');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2010-02-012');
-INSERT INTO `start_date` (`Start_Date_ID`, `Start_Date`) VALUES (NULL, '2009-05-021');
-
-
-INSERT INTO `employee` (`Employee_ID`, `Start_Date_ID`, `Gender_ID`, `P_ID`) VALUES (NULL, '1', '1', '1');
-INSERT INTO `employee` (`Employee_ID`, `Start_Date_ID`, `Gender_ID`, `P_ID`) VALUES (NULL, '2', '1', '2');
-INSERT INTO `employee` (`Employee_ID`, `Start_Date_ID`, `Gender_ID`, `P_ID`) VALUES (NULL, '5', '1', '3'); 

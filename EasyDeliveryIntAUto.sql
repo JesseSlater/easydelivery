@@ -116,7 +116,7 @@ CREATE TABLE AREA_MANAGER (
 
 CREATE TABLE DELIVERER (
     Employee_ID CHAR(4) NOT NULL,
-    Manager_ID INT,
+    Manager_ID CHAR(4),
     PRIMARY KEY (Employee_ID),
     FOREIGN KEY (Employee_ID)
         REFERENCES EMPLOYEE (Employee_ID),

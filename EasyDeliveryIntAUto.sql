@@ -409,3 +409,72 @@ INSERT INTO `person` (`P_ID`, `First_name`, `Middle_name`, `Last_name`, `Date_of
 
 INSERT INTO `gender` (`Gender_ID`, `Gender`) VALUES (NULL, 'Male'), (NULL, 'Female') ;
 
+INSERT INTO CUSTOMER
+    (Customer_ID, P_ID)
+VALUES 
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=1)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=3)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=5)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=6)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=7)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=9)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=11)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=12)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=13)),
+    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=15));
+    
+INSERT INTO GOLD_PASS
+    (Pass_ID, Delivery_Count)
+VALUES
+    (NULL, 8),
+    (NULL, 18);
+
+INSERT INTO MEMBER_CARD
+    (Card_ID)
+VALUES
+    (NULL),
+    (NULL),
+    (NULL),
+    (NULL);
+
+INSERT INTO ORDINARY_CUSTOMER
+   (Customer_ID)
+VALUES
+    (9),
+    (10),
+    (17),
+    (18);
+    
+INSERT INTO SILVER_MEMBER
+    (Customer_ID)
+VALUES
+    (11),
+    (13),
+    (14),
+    (15);
+
+INSERT INTO HAS_MEMBER_CARD
+    (Card_ID, Customer_ID)
+VALUES
+    (11, 11),
+    (12, 13),
+    (13, 14),
+    (14, 15);
+
+INSERT INTO MAKE
+    (Make_ID, Make)
+VALUES
+    (NULL, 'Ford'),
+    (NULL, 'Chevrolet'),
+    (NULL, 'Toyota'),
+    (NULL, 'Honda'),
+    (NULL, 'GMC');
+
+INSERT INTO MODEL
+    (Model_ID, Model, Make_ID)
+VALUES
+    (NULL, "F-150", (SELECT Make_ID FROM MAKE WHERE Make='Ford')),
+    (NULL, "Silverado", (SELECT Make_ID FROM MAKE WHERE Make='Chevrolet')),
+    (NULL, "Rav4", (SELECT Make_ID FROM MAKE WHERE Make='Toyota')),
+    (NULL, "CR-V", (SELECT Make_ID FROM MAKE WHERE Make='Honda')),
+    (NULL, "Camry", (SELECT Make_ID FROM MAKE WHERE Make='Toyota'));

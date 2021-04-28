@@ -175,7 +175,7 @@ CREATE TABLE SHOP_NAME (
 );
 	
 CREATE TABLE SHOP (
-    ShoP_ID INT NOT NULL AUTO_INCREMENT,
+    Shop_ID INT NOT NULL AUTO_INCREMENT,
     Address VARCHAR(30),
     Shop_name_ID INT,
     Phone_number CHAR(10),
@@ -185,7 +185,7 @@ CREATE TABLE SHOP (
 );
 
 CREATE TABLE COMMENT_TBL (
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     Score INT,
     Content VARCHAR(30),
     PRIMARY KEY (Shop_ID),
@@ -194,7 +194,7 @@ CREATE TABLE COMMENT_TBL (
 );
    
 CREATE TABLE LEAVE_COMMENT (
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     Customer_ID INT NOT NULL,
     PRIMARY KEY (Shop_ID, Customer_ID),
     FOREIGN KEY (Shop_ID)
@@ -208,7 +208,7 @@ CREATE TABLE PROMOTION (
     Promo_desc VARCHAR(30),
     Promo_Start_Date DATE,
     Promo_End_Date DATE,
-    ShoP_ID INT,
+    Shop_ID INT,
     PRIMARY KEY (Promotion_ID),
     FOREIGN KEY (Shop_ID)
         REFERENCES SHOP (Shop_ID)
@@ -216,7 +216,7 @@ CREATE TABLE PROMOTION (
 
 CREATE TABLE MAKES_CONTRACTS (
     Employee_ID CHAR(4) NOT NULL,
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     Contract_start_time DATE,
     PRIMARY KEY (Employee_ID, Shop_ID),
     FOREIGN KEY (Shop_ID)
@@ -252,7 +252,7 @@ CREATE TABLE PRODUCT (
 );
 
 CREATE TABLE SUPERMARKET (
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     PRIMARY KEY (Shop_ID),
     FOREIGN KEY (Shop_ID)
         REFERENCES SHOP (Shop_ID)
@@ -262,7 +262,7 @@ CREATE TABLE INVENTORY_PRODUCT (
     Product_ID INT NOT NULL,
     Price_ID CHAR(4),
     Stock_ID INT,
-    ShoP_ID INT,
+    Shop_ID INT,
     PRIMARY KEY (Product_ID),
     FOREIGN KEY (Product_ID)
         REFERENCES PRODUCT (Product_ID),
@@ -303,7 +303,7 @@ CREATE TABLE ORDERS (
 );
 
 CREATE TABLE RESTAURANT (
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     Area_ID INT,
     Order_ID INT,
     PRIMARY KEY (Shop_ID),
@@ -316,7 +316,7 @@ CREATE TABLE RESTAURANT (
 );
 
 CREATE TABLE RESTAURANT_TYPE (
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     Rest_Type VARCHAR(30),
     FOREIGN KEY (Shop_ID)
         REFERENCES RESTAURANT (Shop_ID)
@@ -345,7 +345,7 @@ CREATE TABLE PAYMENT (
 );
 
 CREATE TABLE SHOP_SCHEDULE (
-    ShoP_ID INT NOT NULL,
+    Shop_ID INT NOT NULL,
     Day_ VARCHAR(30) NOT NULL,
     Open_time DATE,
     Closed_time DATE,

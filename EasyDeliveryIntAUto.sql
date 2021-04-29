@@ -412,33 +412,33 @@ INSERT INTO `gender` (`Gender_ID`, `Gender`) VALUES (NULL, 'Male'), (NULL, 'Fema
 INSERT INTO CUSTOMER
     (Customer_ID, P_ID)
 VALUES 
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=1)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=3)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=5)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=6)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=7)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=9)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=11)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=12)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=13)),
-    (NULL, (SELECT P_ID FROM PERSON WHERE P_ID=15));
+    (9, (SELECT P_ID FROM PERSON WHERE P_ID=1)),
+    (10, (SELECT P_ID FROM PERSON WHERE P_ID=3)),
+    (11, (SELECT P_ID FROM PERSON WHERE P_ID=5)),
+    (12, (SELECT P_ID FROM PERSON WHERE P_ID=6)),
+    (13, (SELECT P_ID FROM PERSON WHERE P_ID=7)),
+    (14, (SELECT P_ID FROM PERSON WHERE P_ID=9)),
+    (15, (SELECT P_ID FROM PERSON WHERE P_ID=11)),
+    (16, (SELECT P_ID FROM PERSON WHERE P_ID=12)),
+    (17, (SELECT P_ID FROM PERSON WHERE P_ID=13)),
+    (18, (SELECT P_ID FROM PERSON WHERE P_ID=15));
     
 INSERT INTO GOLD_PASS
     (Pass_ID, Delivery_Count)
 VALUES
-    (NULL, 8),
-    (NULL, 18);
+    (7, 8),
+    (8, 18);
 
 INSERT INTO MEMBER_CARD
     (Card_ID)
 VALUES
-    (NULL),
-    (NULL),
-    (NULL),
-    (NULL);
+    (11),
+    (12),
+    (13),
+    (14);
 
 INSERT INTO ORDINARY_CUSTOMER
-   (Customer_ID)
+    (Customer_ID)
 VALUES
     (9),
     (10),
@@ -464,17 +464,17 @@ VALUES
 INSERT INTO MAKE
     (Make_ID, Make)
 VALUES
-    (NULL, 'Ford'),
-    (NULL, 'Chevrolet'),
-    (NULL, 'Toyota'),
-    (NULL, 'Honda'),
-    (NULL, 'GMC');
+    (1, 'Ford'),
+    (2, 'Chevrolet'),
+    (3, 'Toyota'),
+    (4, 'Honda'),
+    (5, 'GMC');
 
 INSERT INTO MODEL
     (Model_ID, Model, Make_ID)
 VALUES
-    (NULL, "F-150", (SELECT Make_ID FROM MAKE WHERE Make='Ford')),
-    (NULL, "Silverado", (SELECT Make_ID FROM MAKE WHERE Make='Chevrolet')),
-    (NULL, "Rav4", (SELECT Make_ID FROM MAKE WHERE Make='Toyota')),
-    (NULL, "CR-V", (SELECT Make_ID FROM MAKE WHERE Make='Honda')),
-    (NULL, "Camry", (SELECT Make_ID FROM MAKE WHERE Make='Toyota'));
+    (1, "F-150", (SELECT Make_ID FROM MAKE WHERE Make='Ford')),
+    (2, "Silverado", (SELECT Make_ID FROM MAKE WHERE Make='Chevrolet')),
+    (3, "Rav4", (SELECT Make_ID FROM MAKE WHERE Make='Toyota')),
+    (4, "CR-V", (SELECT Make_ID FROM MAKE WHERE Make='Honda')),
+    (5, "Camry", (SELECT Make_ID FROM MAKE WHERE Make='Toyota'));

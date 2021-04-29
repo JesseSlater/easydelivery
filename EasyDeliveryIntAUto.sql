@@ -347,8 +347,8 @@ CREATE TABLE PAYMENT (
 CREATE TABLE SHOP_SCHEDULE (
     Shop_ID INT NOT NULL,
     Day_ VARCHAR(30) NOT NULL,
-    Open_time DATE,
-    Closed_time DATE,
+    Open_time TIME,
+    Closed_time TIME,
     PRIMARY KEY (Shop_ID, Day_),
     FOREIGN KEY (Shop_ID)
         REFERENCES SHOP (Shop_ID)

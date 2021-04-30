@@ -468,6 +468,25 @@ CREATE TABLE PAYMENT_TYPE (
     Payment_type VARCHAR(30),
     PRIMARY KEY (Payment_type_ID)
 );
+CREATE TABLE RESTAURANT_TYPE (
+    Rest_Type_ID INT NOT NULL AUTO_INCREMENT,
+    Rest_Type VARCHAR(30),
+    PRIMARY KEY (Rest_Type_ID)
+);
+    
+
+CREATE TABLE RESTAURANT (
+    Shop_ID INT NOT NULL,
+    Area_ID INT,
+    Rest_Type_ID INT, 
+    PRIMARY KEY (Shop_ID),
+    FOREIGN KEY (Shop_ID)
+        REFERENCES SHOP (Shop_ID),
+    FOREIGN KEY (Area_ID)
+        REFERENCES AREA (Area_ID),
+	FOREIGN KEY (Rest_Type_ID)
+        REFERENCES RESTAURANT_TYPE (Rest_Type_ID)
+);
 
 CREATE TABLE ORDERS (
     Order_ID INT NOT NULL AUTO_INCREMENT,
@@ -476,35 +495,19 @@ CREATE TABLE ORDERS (
     Promo_used_ID INT,
     Plate_number CHAR(7),
     Customer_ID INT,
+    Shop_ID INT,
     PRIMARY KEY (Order_ID),
     FOREIGN KEY (Promo_used_ID)
         REFERENCES PROMO_USED (Promo_used_ID),
     FOREIGN KEY (Plate_number)
         REFERENCES VEHICLE (Plate_number),
     FOREIGN KEY (Customer_ID)
-        REFERENCES CUSTOMER (Customer_ID)
-);
-
-CREATE TABLE RESTAURANT (
-    Shop_ID INT NOT NULL,
-    Area_ID INT,
-    Order_ID INT,
-    PRIMARY KEY (Shop_ID),
-    FOREIGN KEY (Shop_ID)
-        REFERENCES SHOP (Shop_ID),
-    FOREIGN KEY (Area_ID)
-        REFERENCES AREA (Area_ID),
-    FOREIGN KEY (Order_ID)
-        REFERENCES ORDERS (Order_ID)
-);
-
-CREATE TABLE RESTAURANT_TYPE (
-    Shop_ID INT NOT NULL,
-    Rest_Type VARCHAR(30),
-    FOREIGN KEY (Shop_ID)
+        REFERENCES CUSTOMER (Customer_ID),
+	FOREIGN KEY (Shop_ID)
         REFERENCES RESTAURANT (Shop_ID)
 );
-    
+
+
 CREATE TABLE PLACES_ORDER (
     Customer_ID INT NOT NULL,
     Order_ID INT NOT NULL,
@@ -599,6 +602,17 @@ INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Farm to Shelf");
 INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Arbor");
 INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Archie’s Food Basket");
 INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Walmart");
+insert into SHOP_NAME (Shop_Name) values ('Bednar Inc');
+insert into SHOP_NAME (Shop_Name) values ('Orn, Steuber and Stehr');
+insert into SHOP_NAME (Shop_Name) values ('Mertz, Kassulke and Blick');
+insert into SHOP_NAME (Shop_Name) values ('Lowe Inc');
+insert into SHOP_NAME (Shop_Name) values ('Huel-D''Amore');
+insert into SHOP_NAME (Shop_Name) values ('Fay, Kessler and Flatley');
+insert into SHOP_NAME (Shop_Name) values ('Wintheiser-Bogan');
+insert into SHOP_NAME (Shop_Name) values ('Goyette-Upton');
+insert into SHOP_NAME (Shop_Name) values ('Hagenes Inc');
+insert into SHOP_NAME (Shop_Name) values ('Ruecker Group');
+
 
 INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "74 Wakehurst St, NJ 08037", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Dollar Savings Store"), "1389230003");
 INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "104 Santa Clara, WI 54601", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Healthy Treats"), "6254911525");
@@ -610,6 +624,17 @@ INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "7
 INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "549 Arlington NY 12804", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Arbor"), "4812835672");
 INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "952 Talbot, IN 47711", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Archie’s Food Basket"), "6915893527");
 INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "7220 Richardson, TX 74623", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Walmart"), "8667597785");
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('5303 Troy Terrace', 11, '9351072468');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('33637 Old Shore Plaza', 12, '8947259516');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('7135 Gerald Road', 13, '5145524572');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('0 Towne Crossing', 14, '9778842917');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('03673 Leroy Junction', 15, '6455151566');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('619 Jana Park', 16, '2004397305');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('30 Thompson Trail', 17, '7283781579');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('740 Anzinger Plaza', 18, '9108732060');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('59 North Crossing', 19, '8465429834');
+insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('03926 Briar Crest Alley', 20, '9811503437');
+
 
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), "Monday", "09:00", "18:00");
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), "Tuesday", "09:00", "18:00");
@@ -734,31 +759,6 @@ insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('Z5wSg3N', 4, 
 insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('R9hez8E', 3, 'E029');
 insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('k0sAu2b', 4, 'E030');
 
-
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 623, 1223.23, 1, "14qy1e1", 9);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 25, 57716.2, 2, "14qy1e1", 10);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 151, 246.4, 3, "02dv7v7", 11);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 21, 958.43, 4, "36pv4x4", 12);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 918, 123.43, 5, "23ji1w5", 13);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 659, 88.54, 6, "14qy1e1", 14);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 494, 345.56, 7, "67iz8r5", 15);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 894, 987.11, 8, "36pv4x4", 16);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 379, 11.45, 9, "36pv4x4", 17);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 993, 2356.43, 10, "99jc9u4", 18);
-
-
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (9, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=9));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (10, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=10));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (11, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=11));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (12, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=12));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (13, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=13));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (14, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=14));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (15, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=15));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (16, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=16));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (17, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=17));
-INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (18, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=18));
-
-
 insert into color (Color, Plate_number) values ('Purple', '99jc9u4');
 insert into color (Color, Plate_number) values ('Purple', '14qy1e1');
 insert into color (Color, Plate_number) values ('Maroon', '23ji1w5');
@@ -781,27 +781,53 @@ insert into color (Color, Plate_number) values ('Goldenrod', 'R9hez8E');
 insert into color (Color, Plate_number) values ('Pink', 'k0sAu2b');
 
 
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), (SELECT Area_ID FROM AREA WHERE Area='Anchorage'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=1223.23));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), (SELECT Area_ID FROM AREA WHERE Area='Oklahoma City'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=57716.2));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), (SELECT Area_ID FROM AREA WHERE Area='Houston'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=246.4));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), (SELECT Area_ID FROM AREA WHERE Area='Los Angeles'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=958.43));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), (SELECT Area_ID FROM AREA WHERE Area='Buckeye'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=123.43));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'), (SELECT Area_ID FROM AREA WHERE Area='Dallas'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=88.54));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'), (SELECT Area_ID FROM AREA WHERE Area='New York City'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=345.56));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'), (SELECT Area_ID FROM AREA WHERE Area='El Paso'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=987.11));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), (SELECT Area_ID FROM AREA WHERE Area='Columbus'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=11.45));
-INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), (SELECT Area_ID FROM AREA WHERE Area='Huntsville'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=2356.43));
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Casual Dining");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Ghost Restaurant");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Pop-Up Restaurant");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Food Trucks and Stands");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Buffet");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Cafe");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Fast Food");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Fast Casual");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Family Style");
+INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Contemporary Casual");
 
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Casual Dining", (SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Ghost Restaurant", (SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Pop-Up Restaurant", (SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Food Trucks and Stands", (SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Buffet", (SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Cafe", (SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Fast Food", (SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Fast Casual", (SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Family Style", (SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
-INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Contemporary Casual", (SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+
+
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (1, 1, 4);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (2, 2, 7);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (3, 3, 9);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (4, 4, 9);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (5, 5, 3);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (6, 6, 3);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (7, 7, 1);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (8, 8, 4);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (9, 9, 2);
+insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (10, 10, 2);
+
+
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 623, 1223.23, 1, "14qy1e1", 9, 1);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 25, 57716.2, 2, "14qy1e1", 10, 2);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 151, 246.4, 3, "02dv7v7", 11, 3);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 21, 958.43, 4, "36pv4x4", 12, 4);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 918, 123.43, 5, "23ji1w5", 13, 5);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 659, 88.54, 6, "14qy1e1", 14, 6);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 494, 345.56, 7, "67iz8r5", 15, 7);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 894, 987.11, 8, "36pv4x4", 16, 8);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 379, 11.45, 9, "36pv4x4", 17, 9);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 993, 2356.43, 10, "99jc9u4", 18, 10);
+
+
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (9, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=9));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (10, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=10));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (11, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=11));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (12, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=12));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (13, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=13));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (14, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=14));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (15, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=15));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (16, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=16));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (17, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=17));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (18, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=18));
 
 INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Cash");
 INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Check");
@@ -822,16 +848,16 @@ INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Orde
 INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Credit card'), "2020-01-01", (SELECT Order_ID FROM ORDERS WHERE Total_balance=11.45));
 INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Electronic bank transfer'), "2020-01-11", (SELECT Order_ID FROM ORDERS WHERE Total_balance=2356.43));
 
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
-INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (11);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (12);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (13);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (14);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (15);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (16);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (17);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (18);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (19);
+INSERT INTO SUPERMARKET (Shop_ID) VALUES (20);
 
 INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Bubble Wrap");
 INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Jacuzzi");
@@ -866,16 +892,16 @@ INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 888);
 INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 687);
 INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 111);
 
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Bubble Wrap'), (SELECT Price_ID FROM PRICE WHERE price=123.23), (SELECT Stock_ID FROM STOCK WHERE Total_stock=45), (SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Jacuzzi'), (SELECT Price_ID FROM PRICE WHERE price=5776.2), (SELECT Stock_ID FROM STOCK WHERE Total_stock=124), (SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Breathalyzer'), (SELECT Price_ID FROM PRICE WHERE price=1246.4), (SELECT Stock_ID FROM STOCK WHERE Total_stock=286), (SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Chapstick'), (SELECT Price_ID FROM PRICE WHERE price=9587.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=500), (SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Kleenex'), (SELECT Price_ID FROM PRICE WHERE price=123.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=234), (SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Popsicle'), (SELECT Price_ID FROM PRICE WHERE price=888.54), (SELECT Stock_ID FROM STOCK WHERE Total_stock=444), (SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Rollerblades'), (SELECT Price_ID FROM PRICE WHERE price=345.56), (SELECT Stock_ID FROM STOCK WHERE Total_stock=999), (SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Velcro'), (SELECT Price_ID FROM PRICE WHERE price=987.11), (SELECT Stock_ID FROM STOCK WHERE Total_stock=888), (SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Band-Aids'), (SELECT Price_ID FROM PRICE WHERE price=111.45), (SELECT Stock_ID FROM STOCK WHERE Total_stock=687), (SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
-INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Post-Its'), (SELECT Price_ID FROM PRICE WHERE price=2356.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=111), (SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Bubble Wrap'), (SELECT Price_ID FROM PRICE WHERE price=123.23), (SELECT Stock_ID FROM STOCK WHERE Total_stock=45), 11);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Jacuzzi'), (SELECT Price_ID FROM PRICE WHERE price=5776.2), (SELECT Stock_ID FROM STOCK WHERE Total_stock=124), 12);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Breathalyzer'), (SELECT Price_ID FROM PRICE WHERE price=1246.4), (SELECT Stock_ID FROM STOCK WHERE Total_stock=286), 13);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Chapstick'), (SELECT Price_ID FROM PRICE WHERE price=9587.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=500), 14);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Kleenex'), (SELECT Price_ID FROM PRICE WHERE price=123.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=234), 15);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Popsicle'), (SELECT Price_ID FROM PRICE WHERE price=888.54), (SELECT Stock_ID FROM STOCK WHERE Total_stock=444), 16);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Rollerblades'), (SELECT Price_ID FROM PRICE WHERE price=345.56), (SELECT Stock_ID FROM STOCK WHERE Total_stock=999), 17);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Velcro'), (SELECT Price_ID FROM PRICE WHERE price=987.11), (SELECT Stock_ID FROM STOCK WHERE Total_stock=888), 18);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Band-Aids'), (SELECT Price_ID FROM PRICE WHERE price=111.45), (SELECT Stock_ID FROM STOCK WHERE Total_stock=687), 19);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Post-Its'), (SELECT Price_ID FROM PRICE WHERE price=2356.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=111), 20);
 
 INSERT INTO GOLD_MEMBER 
    (Employee_ID, Customer_ID)

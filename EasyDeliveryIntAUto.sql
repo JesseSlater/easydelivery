@@ -17,6 +17,31 @@ CREATE TABLE PHONE_NUMBER (
     FOREIGN KEY (P_ID)
         REFERENCES PERSON (P_ID)
 );
+insert into phone_number (Phone_number, P_ID) values ('1325580847', 1);
+insert into phone_number (Phone_number, P_ID) values ('3606553675', 2);
+insert into phone_number (Phone_number, P_ID) values ('7527517257', 3);
+insert into phone_number (Phone_number, P_ID) values ('1497390890', 4);
+insert into phone_number (Phone_number, P_ID) values ('7034020518', 5);
+insert into phone_number (Phone_number, P_ID) values ('3974916180', 6);
+insert into phone_number (Phone_number, P_ID) values ('9288789144', 7);
+insert into phone_number (Phone_number, P_ID) values ('6123460439', 8);
+insert into phone_number (Phone_number, P_ID) values ('6416637490', 9);
+insert into phone_number (Phone_number, P_ID) values ('1615155251', 10);
+insert into phone_number (Phone_number, P_ID) values ('2058285906', 11);
+insert into phone_number (Phone_number, P_ID) values ('8243170984', 12);
+insert into phone_number (Phone_number, P_ID) values ('5393012384', 13);
+insert into phone_number (Phone_number, P_ID) values ('2446226389', 14);
+insert into phone_number (Phone_number, P_ID) values ('3445353649', 15);
+insert into phone_number (Phone_number, P_ID) values ('3844447881', 16);
+insert into phone_number (Phone_number, P_ID) values ('4943419842', 17);
+insert into phone_number (Phone_number, P_ID) values ('8032931918', 18);
+insert into phone_number (Phone_number, P_ID) values ('9596967680', 19);
+insert into phone_number (Phone_number, P_ID) values ('5576282492', 20);
+insert into phone_number (Phone_number, P_ID) values ('8142889486', 21);
+insert into phone_number (Phone_number, P_ID) values ('7906770506', 22);
+insert into phone_number (Phone_number, P_ID) values ('7191278762', 23);
+insert into phone_number (Phone_number, P_ID) values ('7235011087', 24);
+insert into phone_number (Phone_number, P_ID) values ('6664832120', 25);
 
 CREATE TABLE GENDER (
     Gender_ID INT NOT NULL AUTO_INCREMENT,
@@ -136,6 +161,10 @@ CREATE TABLE AREA_MANAGER (
     FOREIGN KEY (Employee_ID)
         REFERENCES EMPLOYEE (Employee_ID)
 );
+insert into Area_Manager (Employee_ID, Location) values ('E020', 'Plano');
+insert into Area_Manager (Employee_ID, Location)  values ('E018', 'Dallas');
+insert into Area_Manager (Employee_ID, Location)  values ('E016', 'Richardson');
+
 
 CREATE TABLE DELIVERER (
     Employee_ID CHAR(4) NOT NULL,
@@ -146,6 +175,12 @@ CREATE TABLE DELIVERER (
     FOREIGN KEY (Manager_ID)
         REFERENCES AREA_MANAGER (Employee_ID)
 );
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E002','E020');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E004','E020');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E006','E018');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E008','E018');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E010','E016');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E012','E016');
 
 CREATE TABLE STAFF (
     Employee_ID CHAR(4) NOT NULL,
@@ -182,6 +217,12 @@ CREATE TABLE VEHICLE (
     FOREIGN KEY (Employee_ID)
         REFERENCES DELIVERER (Employee_ID)
 );
+insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('02dv7v7', 1, 'E002');
+insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('36pv4x4', 3, 'E004');
+insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('67iz8r5', 2, 'E006');
+insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('23ji1w5', 4, 'E008');
+insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('14qy1e1', 1, 'E010');
+insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('99jc9u4', 5, 'E012');
     
 CREATE TABLE COLOR (
     Color VARCHAR(30) NOT NULL,
@@ -190,6 +231,13 @@ CREATE TABLE COLOR (
     FOREIGN KEY (Plate_number)
         REFERENCES VEHICLE (Plate_number)
 );
+insert into color (Color, Plate_Number) values ('Mauv', '02dv7v7');
+insert into color (Color, Plate_Number) values ('Teal', '36pv4x4');
+insert into color (Color, Plate_Number) values ('Turquoise', '67iz8r5');
+insert into color (Color, Plate_Number) values ('Puce', '23ji1w5');
+insert into color (Color, Plate_Number) values ('Red', '14qy1e1');
+insert into color (Color, Plate_Number) values ('Yellow', '99jc9u4');
+
 
 CREATE TABLE SHOP_NAME (
     Shop_name_ID INT NOT NULL AUTO_INCREMENT,

@@ -69,32 +69,58 @@ CREATE TABLE PHONE_NUMBER (
         REFERENCES PERSON (P_ID)
 );
 
-insert into phone_number (Phone_number, P_ID) values ('1325580847', 1);
-insert into phone_number (Phone_number, P_ID) values ('3606553675', 2);
-insert into phone_number (Phone_number, P_ID) values ('7527517257', 3);
-insert into phone_number (Phone_number, P_ID) values ('1497390890', 4);
-insert into phone_number (Phone_number, P_ID) values ('7034020518', 5);
-insert into phone_number (Phone_number, P_ID) values ('3974916180', 6);
-insert into phone_number (Phone_number, P_ID) values ('9288789144', 7);
-insert into phone_number (Phone_number, P_ID) values ('6123460439', 8);
-insert into phone_number (Phone_number, P_ID) values ('6416637490', 9);
-insert into phone_number (Phone_number, P_ID) values ('1615155251', 10);
-insert into phone_number (Phone_number, P_ID) values ('2058285906', 11);
-insert into phone_number (Phone_number, P_ID) values ('8243170984', 12);
-insert into phone_number (Phone_number, P_ID) values ('5393012384', 13);
-insert into phone_number (Phone_number, P_ID) values ('2446226389', 14);
-insert into phone_number (Phone_number, P_ID) values ('3445353649', 15);
-insert into phone_number (Phone_number, P_ID) values ('3844447881', 16);
-insert into phone_number (Phone_number, P_ID) values ('4943419842', 17);
-insert into phone_number (Phone_number, P_ID) values ('8032931918', 18);
-insert into phone_number (Phone_number, P_ID) values ('9596967680', 19);
-insert into phone_number (Phone_number, P_ID) values ('5576282492', 20);
-insert into phone_number (Phone_number, P_ID) values ('8142889486', 21);
-insert into phone_number (Phone_number, P_ID) values ('7906770506', 22);
-insert into phone_number (Phone_number, P_ID) values ('7191278762', 23);
-insert into phone_number (Phone_number, P_ID) values ('7235011087', 24);
-insert into phone_number (Phone_number, P_ID) values ('6664832120', 25);
+insert into phone_number (Phone_number, P_id) values ('4253326449', 1);
+insert into phone_number (Phone_number, P_id) values ('8092715849', 2);
+insert into phone_number (Phone_number, P_id) values ('6629360324', 3);
+insert into phone_number (Phone_number, P_id) values ('7051361485', 4);
+insert into phone_number (Phone_number, P_id) values ('2693999664', 5);
+insert into phone_number (Phone_number, P_id) values ('5545683810', 6);
+insert into phone_number (Phone_number, P_id) values ('2417912910', 7);
+insert into phone_number (Phone_number, P_id) values ('8449869107', 8);
+insert into phone_number (Phone_number, P_id) values ('7908709797', 9);
+insert into phone_number (Phone_number, P_id) values ('3046632594', 10);
+insert into phone_number (Phone_number, P_id) values ('7383001491', 11);
+insert into phone_number (Phone_number, P_id) values ('8567570962', 12);
+insert into phone_number (Phone_number, P_id) values ('5721093507', 13);
+insert into phone_number (Phone_number, P_id) values ('6017918386', 14);
+insert into phone_number (Phone_number, P_id) values ('8362741514', 15);
+insert into phone_number (Phone_number, P_id) values ('4174337780', 16);
+insert into phone_number (Phone_number, P_id) values ('2641170892', 17);
+insert into phone_number (Phone_number, P_id) values ('3452301583', 18);
+insert into phone_number (Phone_number, P_id) values ('3742506825', 19);
+insert into phone_number (Phone_number, P_id) values ('2854229715', 20);
+insert into phone_number (Phone_number, P_id) values ('4695720054', 21);
+insert into phone_number (Phone_number, P_id) values ('1578099472', 22);
+insert into phone_number (Phone_number, P_id) values ('5796976924', 23);
+insert into phone_number (Phone_number, P_id) values ('4769238424', 24);
+insert into phone_number (Phone_number, P_id) values ('8966435853', 25);
+insert into phone_number (Phone_number, P_id) values ('2783699950', 26);
+insert into phone_number (Phone_number, P_id) values ('4578396964', 27);
+insert into phone_number (Phone_number, P_id) values ('9483892106', 28);
+insert into phone_number (Phone_number, P_id) values ('7732391859', 29);
+insert into phone_number (Phone_number, P_id) values ('3044753265', 30);
+insert into phone_number (Phone_number, P_id) values ('9399464308', 31);
+insert into phone_number (Phone_number, P_id) values ('6569062498', 32);
+insert into phone_number (Phone_number, P_id) values ('5957140105', 33);
+insert into phone_number (Phone_number, P_id) values ('5614799441', 34);
+insert into phone_number (Phone_number, P_id) values ('9387763485', 35);
+insert into phone_number (Phone_number, P_id) values ('8153526173', 36);
+insert into phone_number (Phone_number, P_id) values ('1844964295', 37);
+insert into phone_number (Phone_number, P_id) values ('8786070355', 38);
+insert into phone_number (Phone_number, P_id) values ('6879174682', 39);
+insert into phone_number (Phone_number, P_id) values ('1422568202', 40);
+insert into phone_number (Phone_number, P_id) values ('2794598301', 41);
+insert into phone_number (Phone_number, P_id) values ('6748770654', 42);
+insert into phone_number (Phone_number, P_id) values ('4154680908', 43);
+insert into phone_number (Phone_number, P_id) values ('9753435876', 44);
+insert into phone_number (Phone_number, P_id) values ('9175794751', 45);
+insert into phone_number (Phone_number, P_id) values ('6191980782', 46);
+insert into phone_number (Phone_number, P_id) values ('8221742546', 47);
+insert into phone_number (Phone_number, P_id) values ('4968336711', 48);
+insert into phone_number (Phone_number, P_id) values ('6777674055', 49);
+insert into phone_number (Phone_number, P_id) values ('6881272690', 50);
 
+use EasyDelivery;
 CREATE TABLE GENDER (
     Gender_ID INT NOT NULL AUTO_INCREMENT,
     Gender VARCHAR(30),
@@ -144,6 +170,38 @@ insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E014
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E016', 2, 1, 16);
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E018', 7, 1, 18);
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E020', 4, 1, 20);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E021', 3, 1, 21);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E022', 5, 1, 22);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E023', 8, 2, 23);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E024', 9, 1, 24);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E025', 3, 2, 25);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E026', 1, 1, 26);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E027', 3, 1, 27);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E028', 6, 1, 28);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E029', 7, 2, 29);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E030', 7, 1, 30);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E031', 2, 2, 31);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E032', 9, 1, 32);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E033', 4, 1, 33);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E034', 7, 2, 34);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E035', 6, 2, 35);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E036', 8, 1, 36);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E037', 8, 2, 37);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E038', 8, 2, 38);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E039', 1, 1, 39);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E040', 6, 1, 40);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E041', 5, 1, 41);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E042', 8, 2, 42);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E043', 9, 1, 43);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E044', 3, 1, 44);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E045', 9, 2, 45);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E046', 6, 1, 46);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E047', 7, 2, 47);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E048', 6, 2, 48);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E049', 8, 1, 49);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E050', 8, 2, 50);
+
+
 
 
 CREATE TABLE CUSTOMER (
@@ -210,19 +268,21 @@ CREATE TABLE HAS_MEMBER_CARD (
         REFERENCES SILVER_MEMBER (Customer_ID)
 );
 
-CREATE TABLE AREA_MANAGER (
-    Employee_ID CHAR(4) NOT NULL,
-    Location VARCHAR(30),
-    PRIMARY KEY (Employee_ID),
-    FOREIGN KEY (Employee_ID)
-        REFERENCES EMPLOYEE (Employee_ID)
+CREATE TABLE AREA (
+    Area_ID INT NOT NULL AUTO_INCREMENT,
+    Area VARCHAR(30),
+    PRIMARY KEY (AREA_ID)
 );
 
-insert into Area_Manager (Employee_ID, Location) values ('E020', 'Plano');
-insert into Area_Manager (Employee_ID, Location)  values ('E018', 'Dallas');
-insert into Area_Manager (Employee_ID, Location)  values ('E016', 'Richardson');
-
-
+CREATE TABLE AREA_MANAGER (
+    Employee_ID CHAR(4) NOT NULL,
+    Area_ID int NOT NULL,
+    PRIMARY KEY (Employee_ID),
+    FOREIGN KEY (Employee_ID)
+        REFERENCES EMPLOYEE (Employee_ID),    
+	FOREIGN KEY (Area_ID)
+        REFERENCES AREA (Area_ID)
+);
 CREATE TABLE DELIVERER (
     Employee_ID CHAR(4) NOT NULL,
     Manager_ID CHAR(4),
@@ -232,14 +292,6 @@ CREATE TABLE DELIVERER (
     FOREIGN KEY (Manager_ID)
         REFERENCES AREA_MANAGER (Employee_ID)
 );
-
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E002','E020');
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E004','E020');
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E006','E018');
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E008','E018');
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E010','E016');
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E012','E016');
-insert into DELIVERER (Employee_ID, Manager_ID) values ('E014','E016');
 
 CREATE TABLE STAFF (
     Employee_ID CHAR(4) NOT NULL,
@@ -295,12 +347,6 @@ CREATE TABLE VEHICLE (
         REFERENCES DELIVERER (Employee_ID)
 );
 		  
-insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('02dv7v7', 1, 'E002');
-insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('36pv4x4', 3, 'E004');
-insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('67iz8r5', 2, 'E006');
-insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('23ji1w5', 4, 'E008');
-insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('14qy1e1', 1, 'E010');
-insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('99jc9u4', 5, 'E012');
     
 CREATE TABLE COLOR (
     Color VARCHAR(30) NOT NULL,
@@ -309,13 +355,6 @@ CREATE TABLE COLOR (
     FOREIGN KEY (Plate_number)
         REFERENCES VEHICLE (Plate_number)
 );
-		  
-insert into color (Color, Plate_Number) values ('Mauv', '02dv7v7');
-insert into color (Color, Plate_Number) values ('Teal', '36pv4x4');
-insert into color (Color, Plate_Number) values ('Turquoise', '67iz8r5');
-insert into color (Color, Plate_Number) values ('Puce', '23ji1w5');
-insert into color (Color, Plate_Number) values ('Red', '14qy1e1');
-insert into color (Color, Plate_Number) values ('Yellow', '99jc9u4');
 
 
 CREATE TABLE SHOP_NAME (
@@ -363,12 +402,12 @@ CREATE TABLE PROMOTION (
     FOREIGN KEY (Shop_ID)
         REFERENCES SHOP (Shop_ID)
 );
-
 CREATE TABLE MAKES_CONTRACTS (
+	Contract_ID int NOT NULL AUTO_INCREMENT,
     Employee_ID CHAR(4) NOT NULL,
     Shop_ID INT NOT NULL,
     Contract_start_time DATE,
-    PRIMARY KEY (Employee_ID, Shop_ID),
+    PRIMARY KEY (Contract_ID, Employee_ID, Shop_ID),
     FOREIGN KEY (Shop_ID)
         REFERENCES SHOP (Shop_ID),
     FOREIGN KEY (Employee_ID)
@@ -422,12 +461,6 @@ CREATE TABLE INVENTORY_PRODUCT (
         REFERENCES STOCK (Stock_ID),
     FOREIGN KEY (Shop_ID)
         REFERENCES SUPERMARKET (Shop_ID)
-);
-
-CREATE TABLE AREA (
-    Area_ID INT NOT NULL AUTO_INCREMENT,
-    Area VARCHAR(30),
-    PRIMARY KEY (AREA_ID)
 );
 
 CREATE TABLE PAYMENT_TYPE (
@@ -633,6 +666,75 @@ INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SH
 INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), 17);
 INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), 18);
 
+
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Anchorage");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Oklahoma City");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Houston");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Los Angeles");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Buckeye");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Dallas");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "New York City");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "El Paso");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Columbus");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Huntsville");
+
+
+insert into Area_Manager (Employee_ID, Area_ID) values ('E040', 1);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E039', 2);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E038', 3);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E037', 4);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E036', 5);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E035', 6);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E034', 7);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E033', 8);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E032', 9);
+insert into Area_Manager (Employee_ID, Area_ID)  values ('E031', 10);
+
+
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E002','E040');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E004','E040');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E006','E039');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E008','E039');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E010','E038');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E012','E038');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E014','E037');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E016','E037');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E018','E036');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E020','E036');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E021','E035');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E022','E035');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E023','E034');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E024','E034');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E025','E032');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E026','E032');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E027','E031');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E028','E031');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E029','E033');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E030','E033');
+
+
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('99jc9u4', 2, 'E002');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('14qy1e1', 2, 'E004');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('23ji1w5', 1, 'E006');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('67iz8r5', 5, 'E008');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('36pv4x4', 1, 'E010');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('02dv7v7', 5, 'E012');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('W8iRv46', 4, 'E014');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('21hbj0Y', 1, 'E016');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('r5bWn6l', 2, 'E018');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('o4hqc3A', 5, 'E020');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('72mgp8b', 4, 'E021');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('L3xwo8O', 3, 'E022');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('m3wpn7W', 1, 'E023');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('a6zhp4s', 1, 'E024');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('y5hni80', 5, 'E025');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('B9rCi0F', 4, 'E026');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('45lSr7C', 2, 'E027');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('Z5wSg3N', 4, 'E028');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('R9hez8E', 3, 'E029');
+insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('k0sAu2b', 4, 'E030');
+
+
 INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 623, 1223.23, 1, "14qy1e1", 9);
 INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 25, 57716.2, 2, "14qy1e1", 10);
 INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, 151, 246.4, 3, "02dv7v7", 11);
@@ -656,16 +758,28 @@ INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (16, (SELECT Order_ID FR
 INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (17, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=17));
 INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (18, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=18));
 
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Anchorage");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Oklahoma City");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Houston");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Los Angeles");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Buckeye");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Dallas");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "New York City");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "El Paso");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Columbus");
-INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Huntsville");
+
+insert into color (Color, Plate_number) values ('Purple', '99jc9u4');
+insert into color (Color, Plate_number) values ('Purple', '14qy1e1');
+insert into color (Color, Plate_number) values ('Maroon', '23ji1w5');
+insert into color (Color, Plate_number) values ('Mauv', '67iz8r5');
+insert into color (Color, Plate_number) values ('Blue', '36pv4x4');
+insert into color (Color, Plate_number) values ('Green', '02dv7v7');
+insert into color (Color, Plate_number) values ('Puce', 'W8iRv46');
+insert into color (Color, Plate_number) values ('Pink', '21hbj0Y');
+insert into color (Color, Plate_number) values ('Aquamarine', 'r5bWn6l');
+insert into color (Color, Plate_number) values ('Teal', 'o4hqc3A');
+insert into color (Color, Plate_number) values ('Goldenrod', '72mgp8b');
+insert into color (Color, Plate_number) values ('Indigo', 'L3xwo8O');
+insert into color (Color, Plate_number) values ('Violet', 'm3wpn7W');
+insert into color (Color, Plate_number) values ('Red', 'a6zhp4s');
+insert into color (Color, Plate_number) values ('Teal', 'y5hni80');
+insert into color (Color, Plate_number) values ('Fuscia', 'B9rCi0F');
+insert into color (Color, Plate_number) values ('Aquamarine', '45lSr7C');
+insert into color (Color, Plate_number) values ('Red', 'Z5wSg3N');
+insert into color (Color, Plate_number) values ('Goldenrod', 'R9hez8E');
+insert into color (Color, Plate_number) values ('Pink', 'k0sAu2b');
+
 
 INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), (SELECT Area_ID FROM AREA WHERE Area='Anchorage'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=1223.23));
 INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), (SELECT Area_ID FROM AREA WHERE Area='Oklahoma City'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=57716.2));
@@ -774,3 +888,61 @@ INSERT INTO OWNS_GOLD_PASS
 VALUES
     (12, 'E006', 7),
     (16, 'E012', 8);
+    
+INSERT INTO STAFF (`Employee_ID`, `Card_ID`) VALUES ('E041', '11'), ('E042', '12'), ('E043', '13'), ('E044', '14');
+   
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (1, 'E040', 1, '2020-06-15');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (2, 'E039', 2, '2020-12-10');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (3, 'E038', 3, '2021-03-25');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (4, 'E037', 4, '2020-07-20');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (5, 'E036', 5, '2021-02-02');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (6, 'E035', 6, '2020-08-22');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (7, 'E034', 7, '2020-12-08');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (8, 'E033', 8, '2020-12-07');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (9, 'E032', 9, '2020-10-14');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (10, 'E031', 10, '2021-01-25');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (11, 'E040', 1, '2021-02-19');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (12, 'E039', 2, '2020-12-27');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (13, 'E038', 3, '2020-11-05');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (14, 'E037', 4, '2020-11-14');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (15, 'E036', 5, '2020-11-08');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (16, 'E035', 6, '2020-05-09');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (17, 'E034', 7, '2021-01-08');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (18, 'E033', 8, '2020-07-02');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (19, 'E032', 9, '2020-07-15');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (20, 'E031', 10, '2020-11-03');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (21, 'E040', 1, '2020-10-26');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (22, 'E039', 2, '2020-05-12');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (23, 'E038', 3, '2020-08-07');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (24, 'E037', 4, '2020-05-09');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (25, 'E036', 5, '2020-08-27');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (26, 'E035', 6, '2021-03-16');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (27, 'E034', 7, '2020-05-24');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (28, 'E033', 8, '2020-05-23');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (29, 'E032', 9, '2020-07-26');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (30, 'E031', 10, '2020-05-06');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (31, 'E040', 1, '2020-07-17');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (32, 'E039', 2, '2020-11-13');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (33, 'E038', 3, '2020-09-16');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (34, 'E037', 4, '2021-02-26');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (35, 'E036', 5, '2021-03-26');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (36, 'E035', 6, '2021-02-15');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (37, 'E034', 7, '2020-11-23');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (38, 'E033', 8, '2020-08-05');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (39, 'E032', 9, '2021-02-22');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (40, 'E031', 10, '2020-06-30');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (41, 'E040', 1, '2020-11-18');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (42, 'E039', 2, '2021-03-20');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (43, 'E038', 3, '2021-04-26');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (44, 'E037', 4, '2020-08-15');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (45, 'E036', 5, '2021-04-22');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (46, 'E035', 6, '2020-08-09');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (47, 'E034', 7, '2021-02-08');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (48, 'E033', 8, '2020-11-30');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (49, 'E032', 9, '2021-02-28');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (50, 'E031', 10, '2020-07-17');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (51, 'E040', 1, '2020-07-24');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (52, 'E039', 2, '2020-12-04');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (53, 'E038', 3, '2021-03-17');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (54, 'E037', 4, '2020-10-30');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (55, 'E036', 5, '2020-12-10');

@@ -9,6 +9,7 @@ CREATE TABLE PERSON (
     Address VARCHAR(30),
     PRIMARY KEY (P_ID)
 );
+
 INSERT INTO `person` (`P_ID`, `First_name`, `Middle_name`, `Last_name`, `Date_of_birth`, `Address`)VALUES (NULL,'Jackie', NULL,'Billy','1970-05-020','4714 JasonJill Street');
 INSERT INTO `person` (`P_ID`, `First_name`, `Middle_name`, `Last_name`, `Date_of_birth`, `Address`)VALUES (NULL,'Jester', NULL,'James','1995-04-05','503 TawnyTimmy Street');
 INSERT INTO `person` (`P_ID`, `First_name`, `Middle_name`, `Last_name`, `Date_of_birth`, `Address`)VALUES (NULL,'Tammy', NULL,'Billy','1950-08-018','4841 JarnoldJackie Street');
@@ -67,6 +68,7 @@ CREATE TABLE PHONE_NUMBER (
     FOREIGN KEY (P_ID)
         REFERENCES PERSON (P_ID)
 );
+
 insert into phone_number (Phone_number, P_ID) values ('1325580847', 1);
 insert into phone_number (Phone_number, P_ID) values ('3606553675', 2);
 insert into phone_number (Phone_number, P_ID) values ('7527517257', 3);
@@ -98,6 +100,7 @@ CREATE TABLE GENDER (
     Gender VARCHAR(30),
     PRIMARY KEY (Gender_ID)
 );
+
 INSERT INTO `gender` (`Gender_ID`, `Gender`) VALUES (NULL, 'Male'), (NULL, 'Female') ;
 
 CREATE TABLE START_DATE (
@@ -105,6 +108,7 @@ CREATE TABLE START_DATE (
     Start_Date DATE,
     PRIMARY KEY (Start_Date_ID)
 );
+
 insert into start_date (Start_Date_ID, Start_Date) values (1, '2015-07-30');
 insert into start_date (Start_Date_ID, Start_Date) values (2, '2019-04-15');
 insert into start_date (Start_Date_ID, Start_Date) values (3, '2016-12-26');
@@ -129,6 +133,7 @@ CREATE TABLE EMPLOYEE (
     FOREIGN KEY (P_ID)
         REFERENCES PERSON (P_ID)
 );
+
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E002', 1, 1, 2);
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E004', 9, 2, 4);
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E006', 6, 2, 6);
@@ -212,6 +217,7 @@ CREATE TABLE AREA_MANAGER (
     FOREIGN KEY (Employee_ID)
         REFERENCES EMPLOYEE (Employee_ID)
 );
+
 insert into Area_Manager (Employee_ID, Location) values ('E020', 'Plano');
 insert into Area_Manager (Employee_ID, Location)  values ('E018', 'Dallas');
 insert into Area_Manager (Employee_ID, Location)  values ('E016', 'Richardson');
@@ -226,6 +232,7 @@ CREATE TABLE DELIVERER (
     FOREIGN KEY (Manager_ID)
         REFERENCES AREA_MANAGER (Employee_ID)
 );
+
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E002','E020');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E004','E020');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E006','E018');
@@ -249,6 +256,7 @@ CREATE TABLE MAKE (
     Make VARCHAR(30),
     PRIMARY KEY (Make_ID)
 );
+
 INSERT INTO MAKE
     (Make_ID, Make)
 VALUES
@@ -286,6 +294,7 @@ CREATE TABLE VEHICLE (
     FOREIGN KEY (Employee_ID)
         REFERENCES DELIVERER (Employee_ID)
 );
+		  
 insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('02dv7v7', 1, 'E002');
 insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('36pv4x4', 3, 'E004');
 insert into vehicle (Plate_number, Model_ID, Employee_ID) values ('67iz8r5', 2, 'E006');
@@ -300,6 +309,7 @@ CREATE TABLE COLOR (
     FOREIGN KEY (Plate_number)
         REFERENCES VEHICLE (Plate_number)
 );
+		  
 insert into color (Color, Plate_Number) values ('Mauv', '02dv7v7');
 insert into color (Color, Plate_Number) values ('Teal', '36pv4x4');
 insert into color (Color, Plate_Number) values ('Turquoise', '67iz8r5');
@@ -493,8 +503,6 @@ CREATE TABLE SHOP_SCHEDULE (
     FOREIGN KEY (Shop_ID)
         REFERENCES SHOP (Shop_ID)
 );
-
-
 
 INSERT INTO CUSTOMER
     (Customer_ID, P_ID)
@@ -754,3 +762,15 @@ INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES (
 INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Velcro'), (SELECT Price_ID FROM PRICE WHERE price=987.11), (SELECT Stock_ID FROM STOCK WHERE Total_stock=888), (SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
 INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Band-Aids'), (SELECT Price_ID FROM PRICE WHERE price=111.45), (SELECT Stock_ID FROM STOCK WHERE Total_stock=687), (SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
 INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Post-Its'), (SELECT Price_ID FROM PRICE WHERE price=2356.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=111), (SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+
+INSERT INTO GOLD_MEMBER 
+   (Employee_ID, Customer_ID)
+VALUES
+    ('E006', 12),
+    ('E012', 16);
+    
+INSERT INTO OWNS_GOLD_PASS
+    (Customer_ID, Employee_ID, Pass_ID)
+VALUES
+    (12, 'E006', 7),
+    (16, 'E012', 8);

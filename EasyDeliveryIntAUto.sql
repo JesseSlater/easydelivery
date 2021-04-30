@@ -29,6 +29,16 @@ CREATE TABLE START_DATE (
     Start_Date DATE,
     PRIMARY KEY (Start_Date_ID)
 );
+insert into start_date (Start_Date_ID, Start_Date) values (1, '2015-07-30');
+insert into start_date (Start_Date_ID, Start_Date) values (2, '2019-04-15');
+insert into start_date (Start_Date_ID, Start_Date) values (3, '2016-12-26');
+insert into start_date (Start_Date_ID, Start_Date) values (4, '2020-10-23');
+insert into start_date (Start_Date_ID, Start_Date) values (5, '2020-11-03');
+insert into start_date (Start_Date_ID, Start_Date) values (6, '2020-07-10');
+insert into start_date (Start_Date_ID, Start_Date) values (7, '2019-04-01');
+insert into start_date (Start_Date_ID, Start_Date) values (8, '2019-03-01');
+insert into start_date (Start_Date_ID, Start_Date) values (9, '2020-08-19');
+insert into start_date (Start_Date_ID, Start_Date) values (10, '2015-12-05');
 
 CREATE TABLE EMPLOYEE (
     Employee_ID CHAR(4) NOT NULL,
@@ -39,8 +49,21 @@ CREATE TABLE EMPLOYEE (
     FOREIGN KEY (Start_Date_ID)
         REFERENCES START_DATE (Start_Date_ID),
     FOREIGN KEY (Gender_ID)
-        REFERENCES GENDER (Gender_ID)
+        REFERENCES GENDER (Gender_ID),
+    FOREIGN KEY (P_ID)
+        REFERENCES PERSON (P_ID)
 );
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E002', 1, 1, 2);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E004', 9, 2, 4);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E006', 6, 2, 6);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E008', 5, 1, 8);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E010', 3, 1, 10);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E012', 9, 2, 12);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E014', 6, 1, 14);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E016', 2, 1, 16);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E018', 7, 1, 18);
+insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E020', 4, 1, 20);
+
 
 CREATE TABLE CUSTOMER (
     Customer_ID INT NOT NULL AUTO_INCREMENT,

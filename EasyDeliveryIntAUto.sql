@@ -580,16 +580,16 @@ INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELEC
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), "Tuesday", "09:00", "18:00");
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), "Wednesday", "09:00", "18:00");
 
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), 5, "Good");
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), 2, "Ok");
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), 1, "Bad");
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), 1, "Bad");
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), 2, "Ok");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), 5, "Perfect");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), 1, "Bad");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), 4, "Good");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), 5, "Perfect");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), 4, "Good");
 INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'), 4, "Good");
 INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'), 1, "Bad");
 INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'), 3, "Satisfactory");
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), 3, "Satisfactory");
-INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), 3, "Satisfactory");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), 4, "Good");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), 5, "Perfect");
 
 INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-30", "2020-02-09", (SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
 INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-29", "2020-02-08", (SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));

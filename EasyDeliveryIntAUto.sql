@@ -232,6 +232,7 @@ insert into DELIVERER (Employee_ID, Manager_ID) values ('E006','E018');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E008','E018');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E010','E016');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E012','E016');
+insert into DELIVERER (Employee_ID, Manager_ID) values ('E014','E016');
 
 CREATE TABLE STAFF (
     Employee_ID CHAR(4) NOT NULL,

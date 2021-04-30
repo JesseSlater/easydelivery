@@ -496,6 +496,7 @@ CREATE TABLE ORDERS (
     Plate_number CHAR(7),
     Customer_ID INT,
     Shop_ID INT,
+    Order_Date Date,
     PRIMARY KEY (Order_ID),
     FOREIGN KEY (Promo_used_ID)
         REFERENCES PROMO_USED (Promo_used_ID),
@@ -805,17 +806,16 @@ insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (8, 8, 4);
 insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (9, 9, 2);
 insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (10, 10, 2);
 
-
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 623, 1223.23, 1, "14qy1e1", 9, 1);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 25, 57716.2, 2, "14qy1e1", 10, 2);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 151, 246.4, 3, "02dv7v7", 11, 3);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 21, 958.43, 4, "36pv4x4", 12, 4);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 918, 123.43, 5, "23ji1w5", 13, 5);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 659, 88.54, 6, "14qy1e1", 14, 6);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 494, 345.56, 7, "67iz8r5", 15, 7);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 894, 987.11, 8, "36pv4x4", 16, 8);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 379, 11.45, 9, "36pv4x4", 17, 9);
-INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID) VALUES (NULL, 993, 2356.43, 10, "99jc9u4", 18, 10);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 623, 1223.23, 1, "14qy1e1", 9, 1, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 25, 57716.2, 2, "14qy1e1", 10, 2, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 151, 246.4, 3, "02dv7v7", 11, 3, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 21, 958.43, 4, "36pv4x4", 12, 4, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 918, 123.43, 5, "23ji1w5", 13, 5, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 659, 88.54, 6, "14qy1e1", 14, 6, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 494, 345.56, 7, "67iz8r5", 15, 7, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 894, 987.11, 8, "36pv4x4", 16, 8, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 379, 11.45, 9, "36pv4x4", 17, 9, (SELECT CURDATE()));
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 993, 2356.43, 10, "99jc9u4", 18, 10, (SELECT CURDATE()));
 
 
 INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (9, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=9));

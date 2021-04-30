@@ -547,3 +547,209 @@ VALUES
     (13, 14),
     (14, 15);
 
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Dollar Savings Store");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Healthy Treats");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Underground Finds Online");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Fun Times Online Shop");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Privacy Please Online Store");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "We Care Online Store");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Farm to Shelf");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Arbor");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Archie’s Food Basket");
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (NULL, "Walmart");
+
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "74 Wakehurst St, NJ 08037", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Dollar Savings Store"), "1389230003");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "104 Santa Clara, WI 54601", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Healthy Treats"), "6254911525");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "7813 South Woodland PA 18301", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Underground Finds Online"), "2339056976");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "8274 Glen Creek PA 15068", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Fun Times Online Shop"), "5319064235");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "512 Lancaster CT 06705", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Privacy Please Online Store"), "3885690708");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "57 N. Main NC 27292", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="We Care Online Store"), "4085109719");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "77 Van Dyke FL 34741", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Farm to Shelf"), "5912577939");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "549 Arlington NY 12804", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Arbor"), "4812835672");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "952 Talbot, IN 47711", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Archie’s Food Basket"), "6915893527");
+INSERT INTO SHOP (Shop_ID, Address, Shop_name_ID, Phone_number) VALUES (NULL, "7220 Richardson, TX 74623", (SELECT Shop_name_ID FROM SHOP_NAME WHERE Shop_name="Walmart"), "8667597785");
+
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), "Monday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), "Tuesday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), "Wednesday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), "Thursday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), "Friday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'), "Saturday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'), "Sunday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'), "Monday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), "Tuesday", "09:00", "18:00");
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), "Wednesday", "09:00", "18:00");
+
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), 5, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), 2, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), 1, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), 1, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), 2, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'), 4, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'), 1, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'), 3, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), 3, "Blablabla");
+INSERT INTO COMMENT_TBL (Shop_ID, Score, Content) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), 3, "Blablabla");
+
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-30", "2020-02-09", (SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-29", "2020-02-08", (SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-16", "2020-01-26", (SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-09", "2020-01-19", (SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-19", "2020-01-29", (SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-11", "2020-01-21", (SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-10", "2020-01-20", (SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-05", "2020-01-15", (SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-06", "2020-01-16", (SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
+INSERT INTO PROMOTION (Promotion_ID, Promo_desc, Promo_Start_Date, Promo_End_Date, Shop_ID) VALUES (NULL, "An offer you cannot refuse", "2020-01-16", "2020-01-26", (SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=1));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=2));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=3));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=4));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=5));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=6));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=7));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=8));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=9));
+INSERT INTO PROMO_USED (Promo_used_ID, Promotion_ID) VALUES (NULL, (SELECT Promotion_ID FROM PROMOTION WHERE Shop_ID=10));
+
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), 9);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), 10);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), 11);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), 12);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), 13);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'), 14);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'), 15);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'), 16);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), 17);
+INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), 18);
+
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 1223.23, 1, "99jc9u4", 9);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 57716.2, 2, "14qy1e1", 10);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 246.4, 3, "99jc9u4", 11);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 958.43, 4, "02dv7v7", 12);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 123.43, 5, "67iz8r5", 13);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 88.54, 6, "02dv7v7", 14);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 345.56, 7, "23ji1w5", 15);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 987.11, 8, "99jc9u4", 16);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 11.45, 9, "36pv4x4", 17);
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID) VALUES (NULL, "Order Description", 2356.43, 10, "67iz8r5", 18);
+
+
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (9, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=9));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (10, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=10));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (11, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=11));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (12, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=12));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (13, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=13));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (14, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=14));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (15, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=15));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (16, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=16));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (17, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=17));
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (18, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=18));
+
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Anchorage");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Oklahoma City");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Houston");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Los Angeles");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Buckeye");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Dallas");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "New York City");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "El Paso");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Columbus");
+INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Huntsville");
+
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), (SELECT Area_ID FROM AREA WHERE Area='Anchorage'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=1223.23));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), (SELECT Area_ID FROM AREA WHERE Area='Oklahoma City'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=57716.2));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), (SELECT Area_ID FROM AREA WHERE Area='Houston'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=246.4));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'), (SELECT Area_ID FROM AREA WHERE Area='Los Angeles'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=958.43));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'), (SELECT Area_ID FROM AREA WHERE Area='Buckeye'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=123.43));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'), (SELECT Area_ID FROM AREA WHERE Area='Dallas'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=88.54));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'), (SELECT Area_ID FROM AREA WHERE Area='New York City'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=345.56));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'), (SELECT Area_ID FROM AREA WHERE Area='El Paso'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=987.11));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), (SELECT Area_ID FROM AREA WHERE Area='Columbus'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=11.45));
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Order_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), (SELECT Area_ID FROM AREA WHERE Area='Huntsville'), (SELECT Order_ID FROM ORDERS WHERE Total_balance=2356.43));
+
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Casual Dining", (SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Ghost Restaurant", (SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Pop-Up Restaurant", (SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Food Trucks and Stands", (SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Buffet", (SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Cafe", (SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Fast Food", (SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Fast Casual", (SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Family Style", (SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
+INSERT INTO RESTAURANT_TYPE (Rest_Type, Shop_ID) VALUES ("Contemporary Casual", (SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Cash");
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Check");
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Debit card");
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Credit card");
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Mobile payment");
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Electronic bank transfer");
+INSERT INTO PAYMENT_TYPE (Payment_type_ID, Payment_type) VALUES (NULL, "Paypal");
+
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Check'), "2020-01-23", (SELECT Order_ID FROM ORDERS WHERE Total_balance=1223.23));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Mobile payment'), "2020-01-15", (SELECT Order_ID FROM ORDERS WHERE Total_balance=57716.2));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Credit card'), "2020-01-05", (SELECT Order_ID FROM ORDERS WHERE Total_balance=246.4));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Debit card'), "2020-01-24", (SELECT Order_ID FROM ORDERS WHERE Total_balance=958.43));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Check'), "2020-01-01", (SELECT Order_ID FROM ORDERS WHERE Total_balance=123.43));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Debit card'), "2020-01-26", (SELECT Order_ID FROM ORDERS WHERE Total_balance=88.54));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Mobile payment'), "2020-01-17", (SELECT Order_ID FROM ORDERS WHERE Total_balance=345.56));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Electronic bank transfer'), "2020-01-10", (SELECT Order_ID FROM ORDERS WHERE Total_balance=987.11));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Credit card'), "2020-01-01", (SELECT Order_ID FROM ORDERS WHERE Total_balance=11.45));
+INSERT INTO PAYMENT (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) VALUES (NULL, (SELECT Payment_type_ID FROM PAYMENT_TYPE WHERE payment_type='Electronic bank transfer'), "2020-01-11", (SELECT Order_ID FROM ORDERS WHERE Total_balance=2356.43));
+
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
+INSERT INTO SUPERMARKET (Shop_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));
+
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Bubble Wrap");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Jacuzzi");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Breathalyzer");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Chapstick");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Kleenex");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Popsicle");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Rollerblades");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Velcro");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Band-Aids");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Post-Its");
+
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 123.23);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 5776.2);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 1246.4);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 9587.43);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 123.43);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 888.54);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 345.56);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 987.11);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 111.45);
+INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 2356.43);
+
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 45);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 124);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 286);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 500);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 234);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 444);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 999);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 888);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 687);
+INSERT INTO STOCK (Stock_ID, Total_stock) VALUES (NULL, 111);
+
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Bubble Wrap'), (SELECT Price_ID FROM PRICE WHERE price=123.23), (SELECT Stock_ID FROM STOCK WHERE Total_stock=45), (SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Jacuzzi'), (SELECT Price_ID FROM PRICE WHERE price=5776.2), (SELECT Stock_ID FROM STOCK WHERE Total_stock=124), (SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Breathalyzer'), (SELECT Price_ID FROM PRICE WHERE price=1246.4), (SELECT Stock_ID FROM STOCK WHERE Total_stock=286), (SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Chapstick'), (SELECT Price_ID FROM PRICE WHERE price=9587.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=500), (SELECT Shop_ID FROM SHOP WHERE Address='8274 Glen Creek PA 15068'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Kleenex'), (SELECT Price_ID FROM PRICE WHERE price=123.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=234), (SELECT Shop_ID FROM SHOP WHERE Address='512 Lancaster CT 06705'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Popsicle'), (SELECT Price_ID FROM PRICE WHERE price=888.54), (SELECT Stock_ID FROM STOCK WHERE Total_stock=444), (SELECT Shop_ID FROM SHOP WHERE Address='57 N. Main NC 27292'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Rollerblades'), (SELECT Price_ID FROM PRICE WHERE price=345.56), (SELECT Stock_ID FROM STOCK WHERE Total_stock=999), (SELECT Shop_ID FROM SHOP WHERE Address='77 Van Dyke FL 34741'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Velcro'), (SELECT Price_ID FROM PRICE WHERE price=987.11), (SELECT Stock_ID FROM STOCK WHERE Total_stock=888), (SELECT Shop_ID FROM SHOP WHERE Address='549 Arlington NY 12804'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Band-Aids'), (SELECT Price_ID FROM PRICE WHERE price=111.45), (SELECT Stock_ID FROM STOCK WHERE Total_stock=687), (SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'));
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Post-Its'), (SELECT Price_ID FROM PRICE WHERE price=2356.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=111), (SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'));

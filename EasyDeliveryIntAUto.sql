@@ -956,3 +956,72 @@ insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_t
 insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (53, 'E038', 3, '2021-03-17');
 insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (54, 'E037', 4, '2020-10-30');
 insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (55, 'E036', 5, '2020-12-10');
+							      
+				      
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (56, 'E040', 1, '2021-04-10');
+insert into MAKES_CONTRACTS (Contract_ID, Employee_ID, Shop_ID, Contract_start_time) values (57, 'E040', 1, '2019-03-03');
+							      
+ALTER TABLE ORDERS MODIFY Contents VARCHAR(30);
+
+INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) 
+VALUES (NULL, "Shrimp Rangoon", 8.45, 10, "99jc9u4", 18, 7, '2021-04-28');
+
+INSERT INTO ORDERS 
+    (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) 
+VALUES
+    (27, "Seaweed Salad", 5.25, 10, "99jc9u4", 18, 7, '2021-04-30'),
+    (28, "Vegetable Dumplings", 7.45, 10, "67iz8r5", 18, 7, '2021-04-29'),
+    (29, "Spicy Tuna Crisp", 12.45, 9, "99jc9u4", 18, 7, '2021-04-27'),
+    (30, "Chicken Satay", 8.45, 8, "67iz8r5", 18, 7, '2021-04-26'),
+    (31, "Seaweed Salad", 8.45, 8, "99jc9u4", 18, 7, '2021-04-25'),
+    (32, "Fried Calamari", 10.45, 7, "99jc9u4", 18, 7, '2021-04-24'),
+    (33, "Soft-Shell Crab", 12.45, 7, "67iz8r5", 18, 7, '2021-04-23'),
+    (34, "Mint Platter", 17.25, 6, "99jc9u4", 18, 7, '2021-04-22'),
+    (35, "Seaweed Salad", 8.45, 6, "99jc9u4", 18, 7, '2021-04-21'),
+    (36, "Pineapple Cashew Fried Rice", 13.25, 5, "99jc9u4", 18, 7, '2021-04-20'),
+    (37, "Original Pad Thai", 13.25, 5, "67iz8r5", 18, 7, '2021-04-19'),
+    (38, "Seaweed Salad", 8.45, 4, "99jc9u4", 18, 7, '2021-04-18'),
+    (39, "Cashew Chicken", 12.25, 4, "67iz8r5", 18, 7, '2021-04-17'),
+    (40, "Ginger Chicken", 12.25, 4, "67iz8r5", 18, 7, '2021-04-16'),
+    (41, "Mongolian Beef", 14.95, 4, "99jc9u4", 18, 7, '2021-04-15');							      
+							      
+INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (18, 11);
+							      
+INSERT INTO PLACES_ORDER 
+    (Customer_ID, Order_ID) 
+VALUES 
+    (18, 27),
+    (18, 28),
+    (18, 29),
+    (18, 30),
+    (18, 31),
+    (18, 32),
+    (18, 33),
+    (18, 34),
+    (18, 35),
+    (18, 36),
+    (18, 37),
+    (18, 38),
+    (18, 39),
+    (18, 40),
+    (18, 41);							      
+							      
+INSERT INTO PAYMENT 
+    (Payment_confirm_number, Payment_type_ID, Payment_time, Order_ID) 
+VALUES 
+    (NULL, 4, "2021-04-28", 11),
+    (NULL, 4, "2021-04-30", 27),
+    (NULL, 4, "2021-04-29", 28),
+    (NULL, 4, "2021-04-27", 29),
+    (NULL, 4, "2021-04-26", 30),
+    (NULL, 4, "2021-04-25", 31),
+    (NULL, 4, "2021-04-24", 32),
+    (NULL, 4, "2021-04-23", 33),
+    (NULL, 4, "2021-04-22", 34),
+    (NULL, 4, "2021-04-21", 35),
+    (NULL, 4, "2021-04-20", 36),
+    (NULL, 4, "2021-04-19", 37),
+    (NULL, 4, "2021-04-18", 38),
+    (NULL, 4, "2021-04-17", 39),
+    (NULL, 4, "2021-04-16", 40),
+    (NULL, 4, "2021-04-15", 41);

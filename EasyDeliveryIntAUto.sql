@@ -120,7 +120,6 @@ insert into phone_number (Phone_number, P_id) values ('4968336711', 48);
 insert into phone_number (Phone_number, P_id) values ('6777674055', 49);
 insert into phone_number (Phone_number, P_id) values ('6881272690', 50);
 
-use EasyDelivery;
 CREATE TABLE GENDER (
     Gender_ID INT NOT NULL AUTO_INCREMENT,
     Gender VARCHAR(30),
@@ -200,9 +199,6 @@ insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E047
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E048', 6, 2, 48);
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E049', 8, 1, 49);
 insert into employee (Employee_ID, Start_Date_ID, Gender_ID, P_ID) values ('E050', 8, 2, 50);
-
-
-
 
 CREATE TABLE CUSTOMER (
     Customer_ID INT NOT NULL AUTO_INCREMENT,
@@ -356,7 +352,6 @@ CREATE TABLE COLOR (
         REFERENCES VEHICLE (Plate_number)
 );
 
-
 CREATE TABLE SHOP_NAME (
     Shop_name_ID INT NOT NULL AUTO_INCREMENT,
     Shop_name VARCHAR(30),
@@ -474,7 +469,6 @@ CREATE TABLE RESTAURANT_TYPE (
     PRIMARY KEY (Rest_Type_ID)
 );
     
-
 CREATE TABLE RESTAURANT (
     Shop_ID INT NOT NULL,
     Area_ID INT,
@@ -507,7 +501,6 @@ CREATE TABLE ORDERS (
 	FOREIGN KEY (Shop_ID)
         REFERENCES RESTAURANT (Shop_ID)
 );
-
 
 CREATE TABLE PLACES_ORDER (
     Customer_ID INT NOT NULL,
@@ -636,7 +629,6 @@ insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('740 Anzinger Pla
 insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('59 North Crossing', 19, '8465429834');
 insert into SHOP (Address, Shop_Name_ID, Phone_number) values ('03926 Briar Crest Alley', 20, '9811503437');
 
-
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='74 Wakehurst St, NJ 08037'), "Monday", "09:00", "18:00");
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='104 Santa Clara, WI 54601'), "Tuesday", "09:00", "18:00");
 INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7813 South Woodland PA 18301'), "Wednesday", "09:00", "18:00");
@@ -692,7 +684,6 @@ INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SH
 INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='952 Talbot, IN 47711'), 17);
 INSERT INTO LEAVE_COMMENT (Shop_ID, Customer_ID) VALUES ((SELECT Shop_ID FROM SHOP WHERE Address='7220 Richardson, TX 74623'), 18);
 
-
 INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Anchorage");
 INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Oklahoma City");
 INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Houston");
@@ -704,7 +695,6 @@ INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "El Paso");
 INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Columbus");
 INSERT INTO AREA (Area_ID, Area) VALUES (NULL, "Huntsville");
 
-
 insert into Area_Manager (Employee_ID, Area_ID) values ('E040', 1);
 insert into Area_Manager (Employee_ID, Area_ID)  values ('E039', 2);
 insert into Area_Manager (Employee_ID, Area_ID)  values ('E038', 3);
@@ -715,7 +705,6 @@ insert into Area_Manager (Employee_ID, Area_ID)  values ('E034', 7);
 insert into Area_Manager (Employee_ID, Area_ID)  values ('E033', 8);
 insert into Area_Manager (Employee_ID, Area_ID)  values ('E032', 9);
 insert into Area_Manager (Employee_ID, Area_ID)  values ('E031', 10);
-
 
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E002','E040');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E004','E040');
@@ -737,7 +726,6 @@ insert into DELIVERER (Employee_ID, Manager_ID) values ('E027','E031');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E028','E031');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E029','E033');
 insert into DELIVERER (Employee_ID, Manager_ID) values ('E030','E033');
-
 
 insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('99jc9u4', 2, 'E002');
 insert into vehicle (Plate_Number, Model_ID, Employee_ID) values ('14qy1e1', 2, 'E004');
@@ -781,7 +769,6 @@ insert into color (Color, Plate_number) values ('Red', 'Z5wSg3N');
 insert into color (Color, Plate_number) values ('Goldenrod', 'R9hez8E');
 insert into color (Color, Plate_number) values ('Pink', 'k0sAu2b');
 
-
 INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Casual Dining");
 INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Ghost Restaurant");
 INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Pop-Up Restaurant");
@@ -792,8 +779,6 @@ INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Fast Food");
 INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Fast Casual");
 INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Family Style");
 INSERT INTO RESTAURANT_TYPE (Rest_Type) VALUES ("Contemporary Casual");
-
-
 
 insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (1, 1, 4);
 insert into RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (2, 2, 7);
@@ -816,7 +801,6 @@ INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_numb
 INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 894, 987.11, 8, "36pv4x4", 16, 8, (SELECT CURDATE()));
 INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 379, 11.45, 9, "36pv4x4", 17, 9, (SELECT CURDATE()));
 INSERT INTO ORDERS (Order_ID, Contents, Total_balance, Promo_used_ID, Plate_number, Customer_ID, Shop_ID, Order_Date) VALUES (NULL, 993, 2356.43, 10, "99jc9u4", 18, 10, (SELECT CURDATE()));
-
 
 INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (9, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=9));
 INSERT INTO PLACES_ORDER (Customer_ID, Order_ID) VALUES (10, (SELECT Order_ID FROM ORDERS WHERE Customer_ID=10));

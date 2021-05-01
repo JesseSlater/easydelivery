@@ -1,10 +1,10 @@
 USE EasyDelivery;
 
 
-/*
-  D 1
-  Annual Top Customers: This view returns the First Name, Last Name, Total Order Amount of the customers 
-  who paid top 3 total amount of orders orders (in terms of total balance in the orders) in past 1 year.
+/* 
+D 1
+AnnualTopCustomers: Thisviewreturns the First Name, Last Name, TotalOrderAmountof the customerswho paid top 3 total amount of 
+orders (in terms of total balance in the orders)in past 1 year.
 */
 CREATE VIEW d1 AS
 SELECT p.First_name, p.Last_name, SUM(Total_balance) as sumTot
@@ -16,10 +16,9 @@ order by sumTot DESC
 limit 3;
 
 
-/*
-  D 2
-  Popular Restaurant Type: This view returns the Type of restaurants that have the most
-  number of orders in past 1 year.
+/* 
+D 2
+PopularRestaurantType: This view returns the Type of restaurants that have the most number of orders in past 1 year.
 */
 CREATE VIEW d2 AS
 SELECT DISTINCT rt.Rest_Type, count(*) as _Orders
@@ -65,7 +64,10 @@ FROM
  ORDER BY Num_of_Contracts DESC
  LIMIT 1) as area_manager;
 
-/*E 1*/
+/*
+  E 1
+  Find the names of employee who supervises the most number of deliverers.
+*/
 SELECT DISTINCT First_name, Middle_name, Last_name
 FROM PERSON p, Employee E, AREA_MANAGER A 
 WHERE p.P_ID = E.P_ID
@@ -75,24 +77,50 @@ GROUP BY Manager_ID
 ORDER BY count(*) desc
 LIMIT 1);
 
-/*E 5*/
+/*
+  E 5
+  Find the namesof deliverers who deliveredthe most orders in past 1 month.
+*/
 SELECT DISTINCT  P.first_name, P.last_name, count(*) as _Orders
 FROM Orders o, Vehicle v, Employee e, Person p
 WHERE o.Order_Date > (SELECT DATE_ADD((SELECT CURDATE()), INTERVAL -1 MONTH) )
-AND O.Plate_number = v.Plate_number
-AND v.Employee_ID = e.Employee_ID
-AND e.P_ID = p.P_ID
+AND O.Plate_number = v.Plate_number AND v.Employee_ID = e.Employee_ID AND e.P_ID = p.P_ID
 GROUP BY p.P_ID
 ORDER BY _Orders desc
 LIMIT 3;
 
 
-/*E 6*/
+/*
+   E  6
+   Find the restaurants that providemost promotion in past 1 month. 
+*/
 SELECT DISTINCT sn.Shop_name, s.Shop_ID, count(*) as _Promotions 
 FROM SHOP_NAME sn, SHOP s, Promotion p
 WHERE p.Promo_Start_Date > (SELECT DATE_ADD((SELECT CURDATE()), INTERVAL -1 MONTH) )
-AND p.Shop_ID = s.Shop_ID
-AND s.Shop_Name_ID = sn.Shop_Name_ID
+AND p.Shop_ID = s.Shop_ID AND s.Shop_Name_ID = sn.Shop_Name_ID
 GROUP BY s.Shop_ID
 ORDER BY _Promotions desc
 LIMIT 3;
+
+/*
+   E  7
+   Find the customer who have place order sof all Fast Food restaurants. 
+*/
+Select  t2.Customer_ID as _CUSTOMER_ID FROM (SELECT DISTINCT c.Customer_ID, o.Shop_ID
+From RESTAURANT_TYPE rt, RESTAURANT r, Orders o, CUSTOMER c
+WHERE o.Shop_ID IN  (Select RESTAURANT.Shop_ID FROM RESTAURANT, RESTAURANT_TYPE where RESTAURANT_TYPE.Rest_Type = "Fast Food" AND RESTAURANT.Rest_Type_ID = RESTAURANT_TYPE.Rest_Type_ID) 
+AND o.Customer_ID = c.Customer_ID) t2
+GROUP BY t2.Customer_ID
+HAVING Count(*) = (SELECT COUNT( t3.Shop_ID )     
+FROM (Select Shop_ID FROM RESTAURANT, RESTAURANT_TYPE WHERE RESTAURANT_TYPE.Rest_Type = "Fast Food" AND RESTAURANT_TYPE.Rest_Type_ID = RESTAURANT.Rest_Type_ID) as t3);
+
+/*
+   E  8
+   For each restaurant, list all the customers whoplaced the order, and the price of each order. 
+*/
+Select DISTINCT sn.shop_name, p.first_name, p.last_name, o.Contents, o.Total_balance
+From RESTAURANT r, Orders o, CUSTOMER c, SHOP s, SHOP_NAME sn, Person p
+WHERE o.Shop_ID = r.Shop_ID
+AND r.SHOP_ID = s.SHOP_ID And S.Shop_Name_ID = sn.Shop_Name_ID
+AND o.Customer_ID = c.Customer_ID
+AND c.P_ID = p.P_ID;

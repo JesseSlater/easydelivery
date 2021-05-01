@@ -40,8 +40,8 @@ CREATE VIEW d3 AS
 SELECT C.Customer_ID
 FROM CUSTOMER C, ORDERS O
 WHERE EXISTS (SELECT * 
-			        FROM ORDINARY_CUSTOMER OC 
-			        WHERE OC.Customer_ID=C.Customer_ID)
+	      FROM ORDINARY_CUSTOMER OC 
+	      WHERE OC.Customer_ID=C.Customer_ID)
 AND O.Customer_ID = C.Customer_ID
 AND O.Order_Date BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW()
 GROUP BY C.Customer_ID
@@ -56,14 +56,14 @@ HAVING COUNT(*) > 10;
 CREATE VIEW d4 AS
 SELECT Manager_Employee_ID
 FROM 
-	(SELECT M.Employee_ID as Manager_Employee_ID, COUNT(*) AS Num_of_Contracts
-	 FROM AREA_MANAGER M, MAKES_CONTRACTS MC
-	 WHERE M.Employee_ID=MC.Employee_ID
-	 AND EXISTS (SELECT * FROM RESTAURANT R WHERE R.Area_ID=M.Area_ID AND R.Shop_ID=MC.Shop_ID)
-	 AND MC.Contract_start_time BETWEEN SUBDATE(CURDATE(), INTERVAL 1 YEAR) AND NOW()
-	 GROUP BY M.Employee_ID
-	 ORDER BY Num_of_Contracts DESC
-	 LIMIT 1) as area_manager;
+(SELECT M.Employee_ID as Manager_Employee_ID, COUNT(*) AS Num_of_Contracts
+ FROM AREA_MANAGER M, MAKES_CONTRACTS MC
+ WHERE M.Employee_ID=MC.Employee_ID
+ AND EXISTS (SELECT * FROM RESTAURANT R WHERE R.Area_ID=M.Area_ID AND R.Shop_ID=MC.Shop_ID)
+ AND MC.Contract_start_time BETWEEN SUBDATE(CURDATE(), INTERVAL 1 YEAR) AND NOW()
+ GROUP BY M.Employee_ID
+ ORDER BY Num_of_Contracts DESC
+ LIMIT 1) as area_manager;
 
 /*E 1*/
 SELECT DISTINCT First_name, Middle_name, Last_name

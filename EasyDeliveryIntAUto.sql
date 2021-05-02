@@ -1027,3 +1027,11 @@ VALUES
     (NULL, 4, "2021-04-17", 39),
     (NULL, 4, "2021-04-16", 40),
     (NULL, 4, "2021-04-15", 41);
+
+UPDATE RESTAURANT_TYPE SET Rest_Type='Popular' WHERE Rest_Type_ID=1;
+UPDATE SHOP_NAME SET Shop_name='Asian Mint' WHERE Shop_name_ID=7;
+
+INSERT INTO SHOP_NAME (Shop_name_ID, Shop_name) VALUES (21, "Asian Mint");
+INSERT INTO SHOP (Shop_ID, Address, Shop_Name_ID, Phone_number) values (21, '03928 Briar Crest Alley', 21, '9819993537');
+INSERT INTO RESTAURANT (Shop_ID, Area_ID, Rest_Type_ID) values (21, 7, 1);
+INSERT INTO SHOP_SCHEDULE (Shop_ID, Day_, Open_time, Closed_time) VALUES (21, "Monday", "09:00", "18:00");

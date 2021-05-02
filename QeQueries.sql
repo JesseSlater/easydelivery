@@ -141,3 +141,54 @@ WHERE o.Shop_ID = r.Shop_ID
 AND r.SHOP_ID = s.SHOP_ID And S.Shop_Name_ID = sn.Shop_Name_ID
 AND o.Customer_ID = c.Customer_ID
 AND c.P_ID = p.P_ID;
+
+
+/*
+   E  10
+   Find the schedule of the restaurant that have the most orders in past 1 month.
+*/
+SELECT ss.Shop_ID, Day_, Open_time, Closed_time 
+FROM SHOP_SCHEDULE ss INNER JOIN 
+(SELECT Shop_ID, max(orders)
+FROM d5
+GROUP BY Shop_ID
+ORDER BY orders desc
+LIMIT 1) sub
+ON ss.Shop_ID = sub.Shop_ID;
+
+/*
+   E  11
+   Find the names of employee who are also a Gold Member.
+*/
+SELECT e.Employee_ID, p.First_name, p.Middle_name, p.Last_name
+FROM PERSON p, EMPLOYEE e, GOLD_MEMBER g
+WHERE g.Employee_ID = e.Employee_ID
+AND e.P_ID = p.P_ID;
+
+
+/*
+   E  12
+   Find the supermarket that have most different products in stock.
+*/
+SELECT s.Shop_ID, COUNT(i.Product_ID) as products
+FROM SUPERMARKET s, INVENTORY_PRODUCT i,STOCK st
+WHERE s.Shop_ID = i.Shop_ID
+AND i.Stock_ID = st.Stock_ID
+AND st.Total_stock > 0
+GROUP BY s.Shop_ID
+ORDER BY products desc
+LIMIT 1;
+
+
+/*
+E  13
+For each product, list all the supermarket selling it, and the price of the product at the
+supermarket.
+*/
+SELECT p.Product_name, i.Shop_ID, pr.Price
+FROM PRODUCT p, INVENTORY_PRODUCT i, PRICE pr
+WHERE p.Product_ID = i.Product_ID
+AND i.Price_ID = pr.Price_ID;
+
+
+

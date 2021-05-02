@@ -94,6 +94,37 @@ GROUP BY Manager_ID
 ORDER BY count(*) desc
 LIMIT 1);
 
+/*	
+ E 2
+ Find the average number of orders placed by Potential Silver Member. 
+*/
+SELECT COUNT(O.Order_ID) / COUNT(DISTINCT(O.Customer_ID)) AS Avg_num_of_orders
+FROM ORDERS O, d3 D
+WHERE O.Customer_ID=D.Customer_ID
+GROUP BY O.Customer_ID;
+
+/*
+ E 3
+ Find all the customers who placed orders of the restaurants that belong to Popular
+ Restaurant Type. Please also report the name of restaurants.
+*/
+SELECT DISTINCT O.Customer_ID, S.Shop_name
+FROM ORDERS O, RESTAURANT R, SHOP_NAME S
+WHERE O.Shop_ID=R.Shop_ID
+AND O.Shop_ID=S.Shop_name_ID
+AND EXISTS (SELECT * FROM RESTAURANT_TYPE RT WHERE RT.Rest_Type_ID=R.Rest_Type_ID AND RT.Rest_Type='Popular');
+
+/*
+  E 4
+  List all the customers that have become a silver member within a month of joining the
+  system.
+*/
+SELECT C.Customer_ID 
+FROM CUSTOMER C, ORDERS O
+WHERE EXISTS (SELECT * FROM SILVER_MEMBER S WHERE S.Customer_ID=C.Customer_ID)
+AND C.Customer_ID=O.Customer_ID
+AND O.Order_Date BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();
+
 /*
   E 5
   Find the namesof deliverers who deliveredthe most orders in past 1 month.
@@ -133,7 +164,7 @@ FROM (Select Shop_ID FROM RESTAURANT, RESTAURANT_TYPE WHERE RESTAURANT_TYPE.Rest
 
 /*
    E  8
-   For each restaurant, list all the customers whoplaced the order, and the price of each order. 
+   For each restaurant, list all the customers who placed the order, and the price of each order. 
 */
 Select DISTINCT sn.shop_name, p.first_name, p.last_name, o.Contents, o.Total_balance
 From RESTAURANT r, Orders o, CUSTOMER c, SHOP s, SHOP_NAME sn, Person p
@@ -142,7 +173,20 @@ AND r.SHOP_ID = s.SHOP_ID And S.Shop_Name_ID = sn.Shop_Name_ID
 AND o.Customer_ID = c.Customer_ID
 AND c.P_ID = p.P_ID;
 
-
+/*
+ E 9
+ Find the area that have the most number of restaurants located.
+*/
+SELECT Area
+FROM
+(SELECT COUNT(A.Area_ID) AS Restaurant_Count, Area
+FROM RESTAURANT R, AREA A
+WHERE A.Area_ID=R.Area_ID
+GROUP BY A.Area
+ORDER BY Restaurant_Count DESC
+LIMIT 1) as area_count;
+ 
+ 
 /*
    E  10
    Find the schedule of the restaurant that have the most orders in past 1 month.

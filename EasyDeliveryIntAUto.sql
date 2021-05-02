@@ -853,6 +853,7 @@ INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Rollerblades");
 INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Velcro");
 INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Band-Aids");
 INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Post-Its");
+INSERT INTO PRODUCT (Product_ID, Product_name) VALUES (NULL, "Cheetos");
 
 INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 123.23);
 INSERT INTO PRICE (Price_ID, Price) VALUES (NULL, 5776.2);
@@ -886,6 +887,7 @@ INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES (
 INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Velcro'), (SELECT Price_ID FROM PRICE WHERE price=987.11), (SELECT Stock_ID FROM STOCK WHERE Total_stock=888), 18);
 INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Band-Aids'), (SELECT Price_ID FROM PRICE WHERE price=111.45), (SELECT Stock_ID FROM STOCK WHERE Total_stock=687), 19);
 INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Post-Its'), (SELECT Price_ID FROM PRICE WHERE price=2356.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=111), 20);
+INSERT INTO INVENTORY_PRODUCT (Product_ID, Price_ID, Stock_ID, Shop_ID) VALUES ((SELECT Product_ID FROM PRODUCT WHERE Product_name='Cheetos'), (SELECT Price_ID FROM PRICE WHERE price=2356.43), (SELECT Stock_ID FROM STOCK WHERE Total_stock=124), 15);
 
 INSERT INTO GOLD_MEMBER 
    (Employee_ID, Customer_ID)

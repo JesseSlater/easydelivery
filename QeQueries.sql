@@ -64,6 +64,23 @@ FROM
  ORDER BY Num_of_Contracts DESC
  LIMIT 1) as area_manager;
 
+
+/*
+  D 5
+  Top Restaurants: This view returns the top restaurant that have the most orders in past 1 
+  month for each restaurant type.
+*/
+CREATE VIEW d5 AS
+SELECT Rest_Type as Restaurant_Type, Shop_ID, MAX(orders) as orders FROM
+(SELECT rt.Rest_Type, r.Shop_ID, COUNT(o.Order_ID) as orders
+FROM RESTAURANT_TYPE rt
+INNER JOIN RESTAURANT r ON rt.Rest_Type_ID = r.Rest_Type_ID
+INNER JOIN ORDERS o ON r.Shop_ID = o.Shop_ID
+WHERE o.Order_Date BETWEEN (SELECT DATE_ADD((SELECT CURDATE()), INTERVAL -1 MONTH)) AND NOW()
+GROUP BY Rest_Type, Shop_ID) sub
+GROUP BY Restaurant_Type;
+
+
 /*
   E 1
   Find the names of employee who supervises the most number of deliverers.
